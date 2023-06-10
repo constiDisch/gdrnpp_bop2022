@@ -3,9 +3,6 @@
 #include <iostream>
 #include <vector>
 
-extern THCState* state;
-
-
 #define CHECK_CUDA(x)                                          \
   do {                                                         \
     TORCH_CHECK(x.device().is_cuda(), #x " must be a CUDA tensor"); \

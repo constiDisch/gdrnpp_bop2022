@@ -25,10 +25,11 @@ python setup.py build_ext --inplace
 
 echo ""
 echo "********build uncertainty pnp************"
-cd ../uncertainty_pnp
+echo "HAS MORE DEPENDENCIES, so skipped"#
+# cd ../uncertainty_pnp
 # sh build_ceres.sh
-rm -rf build/
-python setup.py build_ext --inplace
+#rm -rf build/
+#python setup.py build_ext --inplace
 
 
 echo ""
