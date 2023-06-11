@@ -8,6 +8,7 @@ ARG USERNAME
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 ARG TORCH_CUDA_ARCH_LIST="Ampere"
+ARG USER_EMAIL="constantin.disch@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -73,13 +74,14 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-
-RUN git config --global user.name "FIRST_NAME cdisch" && git config --global user.email "constantin.disch@gmail.com"
-
 ENV FORCE_CUDA="1"
 
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
 RUN pip install  -r /tmp/requirements.txt
 
-RUN git config --global user.name "const" && git config --global user.email "constantin.disch@gmail.com"
+
+RUN usermod --shell /bin/bash const
+
+USER $USERNAME
+RUN git config --global user.name "$USERNAME" && git config --global user.email "$USER_EMAIL"
