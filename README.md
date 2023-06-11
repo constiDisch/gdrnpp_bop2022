@@ -71,6 +71,10 @@ For example:
 
 `./core/gdrn_modeling/train_gdrn.sh configs/gdrn/ycbv/convnext_a6_AugCosyAAEGray_BG05_mlL1_DMask_amodalClipBox_classAware_ycbv.py 0`
 
+### YCBV
+Make sure to copy the keyframes from [here](https://github.com/yuxng/YCB_Video_toolbox/blob/master/keyframe.txt) and run `python scripts/create_ycbcv_train_image_set.py` (NOTE_ INTERMEDIATE SOLUTION. UNLCEAR WHERE TO FIND THE train.txt).
+Both files should be placed at `datasets/BOP_DATASETS/ycbv/image_sets`
+
 ### Testing 
 
 `./core/gdrn_modeling/test_gdrn.sh <config_path> <gpu_ids> <ckpt_path> (other args)`
