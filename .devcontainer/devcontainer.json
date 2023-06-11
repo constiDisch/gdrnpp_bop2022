@@ -9,6 +9,7 @@
             "USERNAME": "${localEnv:USER}"
         }
 	},
+	"postCreateCommand": "sh scripts/compile_all.sh",
 	"runArgs": [
 		"--gpus", "all"
 	],
@@ -39,7 +40,8 @@
                 "ms-python.python"
             ]
 		}
-	}
+	},
+	"remoteUser": "${localEnv:USER}"
 
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
